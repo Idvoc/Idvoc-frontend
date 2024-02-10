@@ -1,5 +1,5 @@
 "use client"
-import React, { useCallback, useRef, useEffect, useState } from "react";
+import React, { useCallback, useRef, useEffect, useState, useId } from "react";
 import "swiper/css";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Scrollbar, A11y } from "swiper/modules";
@@ -72,7 +72,7 @@ const RecentIds = () => {
         >
           {[1, 2, 3, 4, 5, 6, 7].map(() => {
             return (
-              <SwiperSlide className="pb-[4rem]">
+              <SwiperSlide className="pb-[4rem]" key={useId()}>
                 <IdCard />
               </SwiperSlide>
             )

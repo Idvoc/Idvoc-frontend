@@ -54,7 +54,7 @@ const Services = () => {
                 >
                     {serviceCardsData.map((serviceCardData) => {
                         return (
-                            <SwiperSlide className='!w-[330px] !h-[450px]'>
+                            <SwiperSlide className='!w-[330px] !h-[450px]' key={serviceCardData.mainText}>
                                 <ServiceCard icon={serviceCardData.icon} mainText={serviceCardData.mainText} subMainText={serviceCardData.subMainText} />
                             </SwiperSlide>
                         )

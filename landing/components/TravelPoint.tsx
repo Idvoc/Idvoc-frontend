@@ -1,5 +1,5 @@
 "use client"
-import React from 'react'
+import React, { useId } from 'react'
 import { Icon } from '@iconify/react'
 
 const data = [
@@ -40,9 +40,9 @@ const TravelPoint = () => {
                     </div> 
                     {data.map((data) => {
                         return (
-                            <div className='p-[1rem] border border-textBlack/[10%] rounded-3xl flex flex-col gap-4 w-[206px] items-center justify-center'>
+                            <div key={useId()} className='p-[1rem] border border-textBlack/[10%] rounded-3xl flex flex-col gap-4 w-[210px] items-center justify-center'>
                                 <span className='font-bold text-[35px] leading-[42px] text-[#80D0E3]'>{data.number}</span>
-                                <span className='text-textBlack font-[400] text-[18px] leading-[28.8px]'>{data.desc}</span>
+                                <span className='text-textBlack font-[400] text-[18px] leading-[28.8px] text-center'>{data.desc}</span>
                             </div>
                         )
                     })}

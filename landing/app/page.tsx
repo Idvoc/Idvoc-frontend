@@ -6,6 +6,9 @@ import Services from '@/components/Services'
 import RecentIds from '@/components/RecentIds'
 import TravelPoint from '@/components/TravelPoint'
 import KeyFeatures from '@/components/KeyFeatures'
+import Testimonials from '@/components/Testimonials'
+import NewsLater from '@/components/NewsLater'
+import Footer from '@/components/Footer'
 
 const page = () => {
   return (
@@ -18,6 +21,9 @@ const page = () => {
         <RecentIds />
         <TravelPoint />
         <KeyFeatures />
+        <Testimonials />
+        {/* <NewsLater /> */}
+        <Footer />
       </main>
     </div>
   )
