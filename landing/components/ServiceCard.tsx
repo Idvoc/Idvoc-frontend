@@ -9,7 +9,7 @@ interface serviceCardProps {
 
 const ServiceCard: React.FC<serviceCardProps> = ({ icon, mainText, subMainText }) => {
   return (
-    <main className='bg-white flex items-center flex-col py-[4rem] h-full gap-10 rounded-3xl shadow-2xl px-[2rem]'>
+    <main className='bg-white flex items-center flex-col py-[4rem] h-full gap-10 px-[2rem]'>
       <div className='w-[64px] h-[64px]'>
         <Image src={icon} width={64} height={64} alt='services' />
       </div>

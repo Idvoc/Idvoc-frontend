@@ -1,10 +1,10 @@
 "use client"
-import React from 'react';
+import React, { useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/effect-coverflow';
 import 'swiper/css/pagination';
-import { EffectCoverflow } from 'swiper/modules';
+import { EffectCoverflow, Autoplay, Navigation } from 'swiper/modules';
 
 import ServiceCard from './ServiceCard';
 
@@ -27,8 +27,12 @@ const serviceCardsData = [
 ]
 
 const Services = () => {
+    const [activeIndex, setActiveIndex] = useState(0);
+    const handleSlideChange = (Swiper: any) => {
+        setActiveIndex(Swiper.activeIndex);
+    };
     return (
-        <main className='flex items-center pl-[7rem] pb-[3rem] '>
+        <main className='flex items-center pl-[7rem] '>
             <section className='w-[30%]'>
                 <div className='text-[23px] leading-[27.6px] text-[#80D0E3] font-bold uppercase' >Services</div>
                 <div className='font-semibold text-textBlack text-[44px] leading-[52.8px] mt-2'>
@@ -41,6 +45,7 @@ const Services = () => {
                     grabCursor={true}
                     centeredSlides={true}
                     initialSlide={1}
+                    spaceBetween={20}
                     slidesPerView={'auto'}
                     coverflowEffect={{
                         rotate: 0,
@@ -49,12 +54,17 @@ const Services = () => {
                         modifier: 2.5,
                         slideShadows: false,
                     }}
-                    modules={[EffectCoverflow]}
+                    autoplay={{
+                        delay: 2500,
+                        disableOnInteraction: false,
+                    }}
+                    onSlideChange={(Swiper) => handleSlideChange(Swiper)}
+                    modules={[Navigation, Autoplay]}
                     className="!w-[100%] !py-[50px]"
                 >
-                    {serviceCardsData.map((serviceCardData) => {
+                    {serviceCardsData.map((serviceCardData, index) => {
                         return (
-                            <SwiperSlide className='!w-[330px] !h-[450px]' key={serviceCardData.mainText}>
+                            <SwiperSlide key={index} className={`!w-[330px] !h-[450px] !rounded-3xl !overflow-hidden ${index === activeIndex ? 'shadow-2xl' : ''}`}>
                                 <ServiceCard icon={serviceCardData.icon} mainText={serviceCardData.mainText} subMainText={serviceCardData.subMainText} />
                             </SwiperSlide>
                         )
